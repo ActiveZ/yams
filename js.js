@@ -1,7 +1,8 @@
-var nbJoueurs=6;
+var nbJoueurs = 2;
+init(nbJoueurs); // init avec 2 joueurs
 
 function calcul() {
-  for (let i = 1; i < nbJoueurs+1; i++) {
+  for (let i = 1; i <= nbJoueurs; i++) {
     let x = document.getElementsByClassName("j" + i + " part1");
     let y = document.getElementsByClassName("j" + i + " part2");
     let total1 = 0;
@@ -15,12 +16,8 @@ function calcul() {
     for (let j = 1; j < y.length; j++) {
       if (y[j].checked) {
         total2 += Number(y[j].value);
-      // total2 += Number(y[j].value);
       }
     }
-    // total2 += Number(y.value);
-    console.log(y);
-    // console.log(y[0].value);
 
     document.getElementById("total1Joueur" + i).innerHTML = total1;
     if (total1 > 62) {total1 += 37}
@@ -32,3 +29,89 @@ function calcul() {
 
   }
 };
+
+
+
+function init(n) {
+  nbJoueurs = n;
+  let tablo="";
+  let i;
+
+  tablo = '<table><tr><th>COMBINAISONS</th><th colspan="' + nbJoueurs + '"\
+  >NOMS DES JOUEURS</th><th>MARQUE</th></tr><tr><td></td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="nomJoueur" value="Joueur' + i + '"></td>';
+  }
+
+  tablo += '<td></td></tr><tr><td><span>&#9856;</span> 1</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="j' + i +' part1" onChange="calcul()" type="text"></td>';
+  }
+  tablo += '<td>les as</td></tr><tr><td><span>&#9857;</span> 2</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="j' + i + ' part1" onChange="calcul()" type="text"></td>';
+  }
+  tablo += '<td>les 2</td></tr><tr><td><span>&#9858;</span> 3</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="j' + i + ' part1" onChange="calcul()" type="text"></td>';
+  }
+  tablo += '<td>les 3</td></tr><tr><td><span>&#9858;</span> 4</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="j' + i + ' part1" onChange="calcul()" type="text"></td>';
+  }
+  tablo += '<td>les 4</td></tr><tr><td><span>&#9858;</span> 5</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="j' + i + ' part1" onChange="calcul()" type="text"></td>';
+  }
+  tablo += '<td>les 5</td></tr><tr><td><span>&#9858;</span> 6</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="j' + i + ' part1" onChange="calcul()" type="text"></td>';
+  }
+  tablo += '<td>les 6</td></tr>';
+  
+
+  tablo += '<tr><td>Total partiel</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td id="total1Joueur' + i + '"></td>';
+  }
+  tablo += '<td>TOTAL &#10112;</td></tr><tr><td>+ prime de 37 si total &ge; 63</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td id="totalPrimeJoueur' + i + '"></td>';
+  }
+  tablo += '<td>Total &#10112; + PRIME éventuelle</td></tr><tr><td>BRELAN <br> 3 faces identiques</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="j' + i + ' part2" onChange="calcul()" type="text"></td>';
+  }
+  tablo += '<td>Les points des 5 dés</td></tr><tr><td>PETITE SUITE <br><span>&#9856; &#9857; &#9858; &#9859; &#9860;</span></td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="j' + i + ' part2" type="checkbox" value="25" onChange="calcul()"></td>';
+  }
+  tablo += '<td>25</td></tr><tr><td>GRANDE SUITE <br><span>&#9857; &#9858; &#9859; &#9860; &#9861;</span></td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="j' + i + ' part2" type="checkbox" value="25" onChange="calcul()"></td>';
+  }
+  tablo+= '<td>25</td></tr><tr><td>FULL <br> brelan + paire</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="j' + i + ' part2" type="checkbox" value="30" onChange="calcul()"></td>';
+  }
+  tablo += '<td>30</td></tr><tr><td>CARRE <br> 4 faces identiques</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="j' + i + ' part2" type="checkbox" value="40" onChange="calcul()"></td>';
+  }
+  tablo += '<td>40</td></tr><tr><td>YAM <br> 5 faces identiques</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td><input class="j' + i + ' part2" type="checkbox" value="50" onChange="calcul()"></td>';
+  }
+  tablo += '<td>50</td></tr><tr><td>TOTAL partiel</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td id="total2Joueur' + i + '"></td>';
+  }
+  tablo += '<td>TOTAL &#10113;</td></tr><tr><td>TOTAL GENERAL</td>';
+  for (i=1; i<=nbJoueurs; i++) {
+    tablo += '<td id="generalJoueur' + i + '"></td>';
+  }
+  tablo += '<td>&#10112; + PRIME + &#10113;</td></tr></table>';
+
+  document.getElementById("main").innerHTML = tablo;
+
+}
