@@ -46,11 +46,11 @@ function rayer() {
 
 function verifRayer(element) {
   if (bRayer) {
-    console.log(element.children[0]);
+    //console.log(element.children[0]);
     if (element.children[0].type === "text" && element.children[0].value != "") return;
     if (element.children[0].type === "checkbox" && element.children[0].checked) return;
-    element.children[0].remove();
-    //element.children[0].style.visibility = "hidden";
+    //element.children[0].remove();
+    element.children[0].style.visibility = "hidden";
     rayer();
   }
 }
