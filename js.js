@@ -1,7 +1,11 @@
 var nbJoueurs = 2;
 init(nbJoueurs); // init avec 2 joueurs
+var bRayer = false;
 
 document.getElementById("btRejouer").onclick =function () {
+  bRayer = false;
+  document.getElementById("btRayer").style.backgroundColor = "white";
+
   for (let i = 1; i <= nbJoueurs; i++) {
     let x = document.getElementsByClassName("j" + i + " part1");
     let y = document.getElementsByClassName("j" + i + " part2");
@@ -23,6 +27,25 @@ document.getElementById("btRejouer").onclick =function () {
     document.getElementById("generalJoueur" + i).innerHTML = "";
   }
 }
+
+
+/*************************************************************************/
+
+
+function rayer() {
+  bRayer = !bRayer;
+  document.getElementById("btRayer").style.backgroundColor = bRayer ? "red" : "white";
+}
+
+function verifRayer(element) {
+  if (bRayer) {
+    console.log(element);
+    element.visible = false;
+    rayer();
+  }
+}
+/**************************************************************************/
+
 
 function calcul() {
   for (let i = 1; i <= nbJoueurs; i++) {
@@ -63,6 +86,8 @@ function calcul() {
 };
 
 
+/**************************************************************************/
+
 
 function init(n) {
   nbJoueurs = n;
@@ -77,7 +102,7 @@ function init(n) {
 
   tablo += '<td></td></tr><tr><td><span>&#9856;</span> 1</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i +' part1" onChange="calcul(this.class)" type="text"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i +' part1" onChange="calcul(this.class)" type="text"></td>';
   }
   tablo += '<td>les as</td></tr><tr><td><span>&#9857;</span> 2</td>';
   for (i=1; i<=nbJoueurs; i++) {
