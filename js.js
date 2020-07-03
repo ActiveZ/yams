@@ -1,9 +1,12 @@
 var nbJoueurs = 2;
 init(nbJoueurs); // init avec 2 joueurs
 var bRayer = false;
+var bCancelRayer = false; //TODO
 
 document.getElementById("btRejouer").onclick =function () {
   bRayer = false;
+  bCancelRayer = false;
+  document.getElementById("btRayer").innerHTML = "Rayer";
   document.getElementById("btRayer").style.backgroundColor = "white";
 
   for (let i = 1; i <= nbJoueurs; i++) {
@@ -36,8 +39,27 @@ document.getElementById("btRejouer").onclick =function () {
 
 
 function rayer() {
-  bRayer = !bRayer;
-  document.getElementById("btRayer").style.backgroundColor = bRayer ? "red" : "white";
+  let bt = document.getElementById("btRayer");
+
+  if (!bRayer && !bCancelRayer) {
+    bRayer = true;
+    bt.style.backgroundColor = "red";
+    bt.innerHTML = "Rayer";
+  }
+
+  else if (bRayer && !bCancelRayer) {
+    bRayer = false;
+    bCancelRayer = true;
+    bt.style.backgroundColor = "lightgreen";
+    bt.innerHTML = "Annuler Rayer";
+
+  }
+
+  else if (bCancelRayer) {
+    bCancelRayer = false;
+    bt.style.backgroundColor = "white";
+    bt.innerHTML = "Rayer";
+  }
 }
 
 
@@ -51,6 +73,10 @@ function verifRayer(element) {
     if (element.children[0].type === "checkbox" && element.children[0].checked) return;
     //element.children[0].remove();
     element.children[0].style.visibility = "hidden";
+    rayer();
+  }
+  else if (bCancelRayer) {
+    element.children[0].style.visibility = "visible";
     rayer();
   }
 }
