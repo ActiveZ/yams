@@ -1,6 +1,29 @@
 var nbJoueurs = 2;
 init(nbJoueurs); // init avec 2 joueurs
 
+document.getElementById("btRejouer").onclick =function () {
+  for (let i = 1; i <= nbJoueurs; i++) {
+    let x = document.getElementsByClassName("j" + i + " part1");
+    let y = document.getElementsByClassName("j" + i + " part2");
+
+    for (let j = 0; j < x.length; j++) {
+      x[j].value = ""; // annulation des combinaisons
+      x[j].style.backgroundColor = "white";
+     }
+
+     y[0].value = "" ; // annulation des brelans
+
+    for (let j = 1; j < y.length; j++) {
+    y[j].checked = false; // annulation des cac
+    }
+
+    document.getElementById("total1Joueur" + i).innerHTML = "";
+    document.getElementById("totalPrimeJoueur" + i).innerHTML = "";
+    document.getElementById("total2Joueur" + i).innerHTML = "";
+    document.getElementById("generalJoueur" + i).innerHTML = "";
+  }
+}
+
 function calcul() {
   for (let i = 1; i <= nbJoueurs; i++) {
     let x = document.getElementsByClassName("j" + i + " part1");
@@ -8,11 +31,20 @@ function calcul() {
     let total1 = 0;
     
     for (let j = 0; j < x.length; j++) {
-      // x[j].style.backgroundColor = "red";
-      total1 += Number(x[j].value);
+      //console.log("j: " + j + "  val: " + x[j].value);
+      if (!isNaN(Number(x[j].value)) && x[j].value != "") {
+        x[j].style.backgroundColor = x[j].value >= (j+1)*3 ? "lightgreen" : "red";
+        total1 += Number(x[j].value);
+      } else {
+        x[j].style.backgroundColor = "white";
+      }
     }
     
-    let total2 = Number(y[0].value); // valeur brelan
+    let total2 = 0;
+    if (!isNaN(Number(y[0].value)) && y[0].value != "") {
+      total2 = Number(y[0].value); // valeur brelan
+    }
+
     for (let j = 1; j < y.length; j++) {
       if (y[j].checked) {
         total2 += Number(y[j].value);
@@ -45,27 +77,27 @@ function init(n) {
 
   tablo += '<td></td></tr><tr><td><span>&#9856;</span> 1</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i +' part1" onChange="calcul()" type="text"></td>';
+    tablo += '<td><input class="j' + i +' part1" onChange="calcul(this.class)" type="text"></td>';
   }
   tablo += '<td>les as</td></tr><tr><td><span>&#9857;</span> 2</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part1" onChange="calcul()" type="text"></td>';
+    tablo += '<td><input class="j' + i + ' part1" onChange="calcul(this.class)" type="text"></td>';
   }
   tablo += '<td>les 2</td></tr><tr><td><span>&#9858;</span> 3</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part1" onChange="calcul()" type="text"></td>';
+    tablo += '<td><input class="j' + i + ' part1" onChange="calcul(this.class)" type="text"></td>';
   }
   tablo += '<td>les 3</td></tr><tr><td><span>&#9858;</span> 4</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part1" onChange="calcul()" type="text"></td>';
+    tablo += '<td><input class="j' + i + ' part1" onChange="calcul()this.class" type="text"></td>';
   }
   tablo += '<td>les 4</td></tr><tr><td><span>&#9858;</span> 5</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part1" onChange="calcul()" type="text"></td>';
+    tablo += '<td><input class="j' + i + ' part1" onChange="calcul(this.class)" type="text"></td>';
   }
   tablo += '<td>les 5</td></tr><tr><td><span>&#9858;</span> 6</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part1" onChange="calcul()" type="text"></td>';
+    tablo += '<td><input class="j' + i + ' part1" onChange="calcul(this.class)" type="text"></td>';
   }
   tablo += '<td>les 6</td></tr>';
   
