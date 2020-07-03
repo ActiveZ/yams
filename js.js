@@ -40,13 +40,22 @@ function rayer() {
   document.getElementById("btRayer").style.backgroundColor = bRayer ? "red" : "white";
 }
 
+
+/**************************************************************************/
+
+
 function verifRayer(element) {
   if (bRayer) {
-    // console.log(element);
-    element.children[0].style.visibility = "hidden";
+    console.log(element.children[0]);
+    if (element.children[0].type === "text" && element.children[0].value != "") return;
+    if (element.children[0].type === "checkbox" && element.children[0].checked) return;
+    element.children[0].remove();
+    //element.children[0].style.visibility = "hidden";
     rayer();
   }
 }
+
+
 /**************************************************************************/
 
 
