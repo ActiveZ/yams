@@ -13,12 +13,15 @@ document.getElementById("btRejouer").onclick =function () {
     for (let j = 0; j < x.length; j++) {
       x[j].value = ""; // annulation des combinaisons
       x[j].style.backgroundColor = "white";
+      x[j].style.visibility = "visible";
      }
 
      y[0].value = "" ; // annulation des brelans
+     x[0].style.visibility = "visible";
 
     for (let j = 1; j < y.length; j++) {
     y[j].checked = false; // annulation des cac
+    y[j].style.visibility = "visible";
     }
 
     document.getElementById("total1Joueur" + i).innerHTML = "";
@@ -39,8 +42,8 @@ function rayer() {
 
 function verifRayer(element) {
   if (bRayer) {
-    console.log(element);
-    element.visible = false;
+    // console.log(element);
+    element.children[0].style.visibility = "hidden";
     rayer();
   }
 }
@@ -106,23 +109,23 @@ function init(n) {
   }
   tablo += '<td>les as</td></tr><tr><td><span>&#9857;</span> 2</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part1" onChange="calcul(this.class)" type="text"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part1" onChange="calcul(this.class)" type="text"></td>';
   }
   tablo += '<td>les 2</td></tr><tr><td><span>&#9858;</span> 3</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part1" onChange="calcul(this.class)" type="text"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part1" onChange="calcul(this.class)" type="text"></td>';
   }
   tablo += '<td>les 3</td></tr><tr><td><span>&#9858;</span> 4</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part1" onChange="calcul()this.class" type="text"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part1" onChange="calcul()this.class" type="text"></td>';
   }
   tablo += '<td>les 4</td></tr><tr><td><span>&#9858;</span> 5</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part1" onChange="calcul(this.class)" type="text"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part1" onChange="calcul(this.class)" type="text"></td>';
   }
   tablo += '<td>les 5</td></tr><tr><td><span>&#9858;</span> 6</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part1" onChange="calcul(this.class)" type="text"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part1" onChange="calcul(this.class)" type="text"></td>';
   }
   tablo += '<td>les 6</td></tr>';
   
@@ -137,27 +140,27 @@ function init(n) {
   }
   tablo += '<td>Total &#10112; + PRIME éventuelle</td></tr><tr><td>BRELAN <br> 3 faces identiques</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part2" onChange="calcul()" type="text"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part2" onChange="calcul()" type="text"></td>';
   }
   tablo += '<td>Les points des 5 dés</td></tr><tr><td>PETITE SUITE <br><span>&#9856; &#9857; &#9858; &#9859; &#9860;</span></td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part2" type="checkbox" value="25" onChange="calcul()"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part2" type="checkbox" value="25" onChange="calcul()"></td>';
   }
   tablo += '<td>25</td></tr><tr><td>GRANDE SUITE <br><span>&#9857; &#9858; &#9859; &#9860; &#9861;</span></td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part2" type="checkbox" value="25" onChange="calcul()"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part2" type="checkbox" value="25" onChange="calcul()"></td>';
   }
   tablo+= '<td>25</td></tr><tr><td>FULL <br> brelan + paire</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part2" type="checkbox" value="30" onChange="calcul()"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part2" type="checkbox" value="30" onChange="calcul()"></td>';
   }
   tablo += '<td>30</td></tr><tr><td>CARRE <br> 4 faces identiques</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part2" type="checkbox" value="40" onChange="calcul()"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part2" type="checkbox" value="40" onChange="calcul()"></td>';
   }
   tablo += '<td>40</td></tr><tr><td>YAM <br> 5 faces identiques</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td><input class="j' + i + ' part2" type="checkbox" value="50" onChange="calcul()"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part2" type="checkbox" value="50" onChange="calcul()"></td>';
   }
   tablo += '<td>50</td></tr><tr><td>TOTAL partiel</td>';
   for (i=1; i<=nbJoueurs; i++) {
