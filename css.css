@@ -30,7 +30,8 @@ table {
   }
 
   button {
-    width: 250px;
+    width: 150px;
+    border-radius: 10px;
   }
 
   input[type=number] {

@@ -52,7 +52,7 @@ function rayer() {
     bRayer = false;
     bCancelRayer = true;
     bt.style.backgroundColor = "lightgreen";
-    bt.innerHTML = "Annuler Rayer";
+    bt.innerHTML = "Annuler";
 
   }
 
@@ -263,9 +263,9 @@ function init(n) {
   //brelan
   tablo += '<tr><td>BRELAN <br> 3 faces identiques</td>';
   for (i=1; i<=nbJoueurs; i++) {
-    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part2" type="checkbox" value="20" onChange="verifRayer(this)"></td>';
+    tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part2" type="checkbox" value="15" onChange="verifRayer(this)"></td>';
   }
-  tablo += '<td>20</td></tr>';
+  tablo += '<td>15</td></tr>';
 
   //petite suite
   tablo += '<tr><td>PETITE SUITE <br>4 dés</td>';
