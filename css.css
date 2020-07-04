@@ -1,3 +1,13 @@
+.tableFixHead {
+  overflow-y: auto;
+  height: 650px; 
+}
+
+.tableFixHead thead tr {
+  position: sticky;
+  top: 0; 
+}
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
