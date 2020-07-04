@@ -184,9 +184,9 @@ function init(n) {
 
   tablo = '<table>';
   
-  tablo += '<tr><th>COMBINAISONS</th><th colspan="' + nbJoueurs + '">NOMS DES JOUEURS</th><th>MARQUE</th></tr>';
-  
   tablo += '<thead>';
+    
+    tablo += '<tr><th>COMBINAISONS</th><th colspan="' + nbJoueurs + '">NOMS DES JOUEURS</th><th>MARQUE</th></tr>';
     
     tablo += '<tr><td></td>';
     for (i=1; i<=nbJoueurs; i++) {
