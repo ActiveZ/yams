@@ -1,7 +1,7 @@
 var nbJoueurs = 2;
 init(nbJoueurs); // init avec 2 joueurs
 var bRayer = false;
-var bCancelRayer = false; //TODO
+var bCancelRayer = false;
 
 document.getElementById("btRejouer").onclick =function () {
   bRayer = false;
@@ -90,12 +90,14 @@ function calcul() {
     let x = document.getElementsByClassName("j" + i + " part1");
     let y = document.getElementsByClassName("j" + i + " part2");
     let total1 = 0;
+    let delta = 0; // écart/prime
     
     for (let j = 0; j < x.length; j++) {
       //console.log("j: " + j + "  val: " + x[j].value);
       if (!isNaN(Number(x[j].value)) && x[j].value != "") {
         x[j].style.backgroundColor = x[j].value >= (j+1)*3 ? "lightgreen" : "red";
         total1 += Number(x[j].value);
+        delta += x[j].value - (j+1)*3;
       } else {
         x[j].style.backgroundColor = "white";
       }
@@ -112,7 +114,7 @@ function calcul() {
       }
     }
 
-    document.getElementById("total1Joueur" + i).innerHTML = total1;
+    document.getElementById("total1Joueur" + i).innerHTML = total1 + " (" + delta + ")";
     if (total1 > 62) {total1 += 37}
     document.getElementById("totalPrimeJoueur" + i).innerHTML = total1;
 
