@@ -1,4 +1,3 @@
-//TODO bug si 0 dans combi
 
 var nbJoueurs = 2;
 init(nbJoueurs); // init avec 2 joueurs
@@ -101,25 +100,25 @@ function verifRayer(element) {
 
 // vérifie la cohérence de la valeur en fonction de la combinaison de dé 
 function isCoherent (combi, val) {
-  if (isNaN(Number(val)) || val < 0 || val > 30) return false;
+  if (val < 0 || val > 30) return false;
   switch (combi) {
     case 1:
       if (val < 6) return true;
       break;
     case 2:
-      if ([2,4,6,8,10].includes(val)) return true;
+      if ([0,2,4,6,8,10].includes(val)) return true;
       break;
     case 3:
-      if ([3,6,9,12,15].includes(val)) return true;
+      if ([0,3,6,9,12,15].includes(val)) return true;
       break;    
     case 4:
-      if ([4,8,12,16,20].includes(val)) return true;
+      if ([0,4,8,12,16,20].includes(val)) return true;
       break;    
     case 5:
-      if ([5,10,15,20,25].includes(val)) return true;
+      if ([0,5,10,15,20,25].includes(val)) return true;
       break;    
     case 6:
-      if ([6,12,18,24,30].includes(val)) return true;
+      if ([0,6,12,18,24,30].includes(val)) return true;
       break;
   }
   return false;
