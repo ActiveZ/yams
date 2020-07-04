@@ -39,6 +39,7 @@ table {
 
   input[type=text] {
     width: 20px;
+    text-align: center;
   }
 
   .nomJoueur {

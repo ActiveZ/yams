@@ -258,7 +258,7 @@ function init(n) {
   for (i=1; i<=nbJoueurs; i++) {
     tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' part2" onChange="calcul(this.class)" type="text"></td>';
   }
-  tablo += '<td>Les points des 5 dés</td></tr>';
+  tablo += '<td>La somme des 5 dés</td></tr>';
 
   //brelan
   tablo += '<tr><td>BRELAN <br> 3 faces identiques</td>';
