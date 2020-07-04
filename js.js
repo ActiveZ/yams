@@ -66,7 +66,8 @@ function rayer() {
 
 /**************************************************************************/
 
-
+// vérifie qu'une ligne est rayable (pas utilisée)
+// Bug: ne fonctionne pas avec les cac
 function verifRayer(element) {
   if (bRayer) {
     //console.log(element);
@@ -181,13 +182,11 @@ function init(n) {
   let tablo="";
   let i;
 
-  // tablo = '<table><tr><th>COMBINAISONS</th><th colspan="' + nbJoueurs + '"\
-  // >NOMS DES JOUEURS</th><th>MARQUE</th></tr><tr><td></td>';
   tablo = '<table>';
   
-  tablo += '<thead>';
+  tablo += '<tr><th>COMBINAISONS</th><th colspan="' + nbJoueurs + '">NOMS DES JOUEURS</th><th>MARQUE</th></tr>';
   
-    tablo += '<tr><th>COMBINAISONS</th><th colspan="' + nbJoueurs + '">NOMS DES JOUEURS</th><th>MARQUE</th></tr>';
+  tablo += '<thead>';
     
     tablo += '<tr><td></td>';
     for (i=1; i<=nbJoueurs; i++) {
