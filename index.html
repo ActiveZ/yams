@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/css.css">
+        <link rel="stylesheet" href="css/api.css">
     </head>
     <body>
       <h2>YAMS: Joueurs
@@ -16,6 +17,22 @@
 
       <main id="main" class="tableFixHead"></main>
 
+      <section>
+        <div id="score">
+          <!-- <p><label for="pseudo">Pseudo</label> : <input type="text" name="pseudo" id="pseudo"></p> -->
+
+          <textarea id="txtArea" name="" rows="10" cols="70"></textarea>
+          
+          <p>
+              <label for="message">Message</label> :  <input type="text" name="message" id="message">
+              <button onclick="envoyer()">Envoyer</button>
+              <!-- <button onclick="recevoir()">Recevoir</button> -->
+          </p>
+      </div>
+      </section>
+
       <script src="js.js"></script>
+      <script src="api.js"></script>
+
     </body>
 </html>
