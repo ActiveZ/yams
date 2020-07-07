@@ -12,8 +12,8 @@ recevoir();
 
 async function envoyer () {
     let pseudo = document.getElementById('pseudo').value;
-    let message = document.getElementById('message').value;
-    if (message === "") return;
+    let score = document.getElementById('score').value;
+    if (pseudo === "" || score === "") return;
 
     let request = new Request(url, {
         method: 'POST',
@@ -23,7 +23,7 @@ async function envoyer () {
         body: JSON.stringify({
             'action': 'sendMessages',
             'pseudo': pseudo,
-            'message': message
+            'score': score
         })
     });
 
@@ -59,7 +59,6 @@ async function recevoir () {
         msg += "Le " + date.toLocaleString() + ", " + data[d].pseudo + " a écrit: " + data[d].score + "\n";
     }
 
-    // document.getElementById('txtArea').innerHTML="reçu";
     document.getElementById('txtArea').innerHTML=msg;
 
     // return
