@@ -8,7 +8,7 @@
 
 // localhost
 $host = 'localhost';
-$db   = 'yams-score';
+$db   = 'yams';
 $username = 'root';
 $password = 'cnam2020';
 $charset = 'utf8';

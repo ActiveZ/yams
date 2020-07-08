@@ -11,7 +11,7 @@ require_once 'bdd.php';
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 if ($_POST['action'] === 'getMessages') {
-    $req = $pdo->prepare('SELECT * FROM yamScore ORDER BY dateTimestamp DESC LIMIT 0,100');
+    $req = $pdo->prepare('SELECT * FROM score ORDER BY dateTimestamp DESC LIMIT 0,100');
     $req->execute();
     $data = $req->fetchAll();
 
@@ -21,7 +21,7 @@ if ($_POST['action'] === 'getMessages') {
 
 elseif ($_POST['action'] === 'sendMessages') {
     //$date = new DateTime();
-    $req = $pdo->prepare('INSERT INTO yamScore (pseudo, score) VALUES (:pseudo, :score)'); // date générée par bdd
+    $req = $pdo->prepare('INSERT INTO score (pseudo, score) VALUES (:pseudo, :score)'); // date générée par bdd
     $req->execute([
         'pseudo' => $_POST['pseudo'],
         'score' => $_POST['score'],
