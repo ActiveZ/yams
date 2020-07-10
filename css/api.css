@@ -1,7 +1,8 @@
 section {
     font-family: Helvetica, sans-serif;
     background-color: black;
-    display: flex;
+    display: none;
+    /* display: flex; */
     text-align: center;
 }
 
