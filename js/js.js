@@ -3,6 +3,7 @@ var nbJoueurs = 2;
 init(nbJoueurs); // init avec 2 joueurs
 var bRayer = false;
 var bCancelRayer = false;
+var gameover = false;
 
 document.getElementById("btRejouer").onclick =function () {
   bRayer = false;
@@ -179,6 +180,7 @@ function calcul() {
 
 function init(n) {
   nbJoueurs = n;
+  gameover = false;
   let tablo="";
   let i;
 
