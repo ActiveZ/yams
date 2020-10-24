@@ -6,6 +6,7 @@ var bCancelRayer = false;
 var gameover = false;
 
 document.getElementById("btRejouer").onclick =function () {
+  if (!confirm("Voulez-vous supprimer la partie en cours ?")) return
   bRayer = false;
   bCancelRayer = false;
   document.getElementById("btRayer").innerHTML = "Rayer";
