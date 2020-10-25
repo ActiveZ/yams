@@ -1,9 +1,28 @@
 
+//// poo ////
+let jeu = new Jeu
+jeu.game_clear() // attention: pas faire si recup partie sur reload page
+
+let j1 = new Joueur
+j1.set_name("joueur 1")
+jeu.add_new_joueur(j1)
+let j2 = new Joueur
+j2.set_name("joueur 2")
+jeu.add_new_joueur(j2)
+jeu.game_save()
+j1.get_name()
+///////////////////////
+
 var nbJoueurs = 2;
 init(nbJoueurs); // init avec 2 joueurs
 var bRayer = false;
 var bCancelRayer = false;
 var gameover = false;
+
+
+/////////////////////////////////////////////////////////////////////
+///////////////////////// BT REJOUER ////////////////////////////////
+/////////////////////////////////////////////////////////////////////
 
 document.getElementById("btRejouer").onclick =function () {
   if (!confirm("Voulez-vous supprimer la partie en cours ?")) return
@@ -11,6 +30,7 @@ document.getElementById("btRejouer").onclick =function () {
   bCancelRayer = false;
   document.getElementById("btRayer").innerHTML = "Rayer";
   document.getElementById("btRayer").style.backgroundColor = "white";
+  jeu.game_clear() //poo
 
   for (let i = 1; i <= nbJoueurs; i++) {
     let x = document.getElementsByClassName("j" + i + " part1");
