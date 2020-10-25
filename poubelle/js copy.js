@@ -1,9 +1,16 @@
 
 //// poo ////
 let jeu = new Jeu
-// jeu.test()
-let j = new Joueur(jeu.get_joueur(0))
-j.get_joueur()
+jeu.game_clear() // attention: pas faire si recup partie sur reload page
+
+let j1 = new Joueur
+j1.set_name("joueur 1")
+jeu.add_new_joueur(j1)
+let j2 = new Joueur
+j2.set_name("joueur 2")
+jeu.add_new_joueur(j2)
+jeu.game_save()
+j1.get_name()
 ///////////////////////
 
 var nbJoueurs = 2;
@@ -188,7 +195,9 @@ function calcul() {
   }
 };
 
+
 /**************************************************************************/
+
 
 function init(n) {
   nbJoueurs = n;

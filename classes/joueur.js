@@ -43,9 +43,9 @@ class Joueur {
         }
     };
 
-    constructor(grid = null) {
-        // console.log("grid construct:", grid)
-        if (grid != null) this.joueur = grid
+    constructor(obj = null) {
+        console.log("obj construct:", obj)
+        if (obj != null) this.joueur = obj
     }
 
     get_name() {
@@ -58,7 +58,7 @@ class Joueur {
     }
 
     get_joueur() {
-        // console.log("get_joueur:", this.joueur)
+        console.log("get_joueur:", this.joueur)
         return this.joueur
     }
 
