@@ -125,8 +125,12 @@ function verifRayer(element) {
 
 /**************************************************************************/
 
+function les_1 (id, val) {
+  console.log("id:", id, "val:", val)
+}
 
 function calcul() {
+  return
   for (let i = 1; i <= nbJoueurs; i++) {
     let x = document.getElementsByClassName("j" + i + " part1");
     let y = document.getElementsByClassName("j" + i + " part2");
