@@ -44,7 +44,7 @@ class Joueur {
     };
 
     constructor(obj = null) {
-        console.log("obj construct:", obj)
+        console.log("joueur obj construct:", obj)
         if (obj != null) this.joueur = obj
     }
 
@@ -65,6 +65,64 @@ class Joueur {
     set_joueur(new_joueur) {
         this.joueur = new_joueur
     }
+
+    ///////////////////////////// SET PART 1 /////////////////////////////////
+
+    set_les_1(x) {
+        if(this.isCoherent(1,x)) this.part_1.les_1 = x
+    }
+
+    set_les_2(x) {
+        if(this.isCoherent(2,x)) this.part_1.les_2 = x
+    }
+
+    set_les_3(x) {
+        if(this.isCoherent(3,x)) this.part_1.les_3 = x
+    }    
+    
+    set_les_4(x) {
+        if(this.isCoherent(4,x)) this.part_1.les_4 = x
+    }    
+    
+    set_les_5(x) {
+        if(this.isCoherent(5,x)) this.part_1.les_5 = x
+    }    
+    
+    set_les_6(x) {
+        if(this.isCoherent(6,x)) this.les_6 = x
+    }
+
+    ///////////////////////////// SET PART 2 /////////////////////////////////
+
+    set_chance(x) {
+        part_2.chance = x;
+    }
+
+    set_brelan(x) {
+        part_2.brelan = true;
+    }
+
+    set_petite_suite(x) {
+        part_2.petite_suite = true;
+    }
+
+    set_grande_suite(x) {
+        part_2.grande_suite = true;
+    }
+
+    set_full(x) {
+        part_2.full = true;
+    }
+
+    set_carre(x) {
+        part_2.carre = true;
+    }
+
+    set_yams(x) {
+        part_2.yams = true;
+    }
+
+    ///////////////////////////// CALCULS ////////////////////////////////
 
     get_total_1() {
         let a = this.joueur.part_1;
@@ -116,4 +174,32 @@ class Joueur {
         sum += this.get_total_1_prime() + this.get_total_2()
         return sum
     }
+
+    // vérifie la cohérence de la valeur en fonction de la combinaison de dé 
+    isCoherent (combi, val) {
+        if (val < 0 || val > 30) return false;
+        switch (combi) {
+        case 1:
+            if (val < 6) return true;
+            break;
+        case 2:
+            if ([0,2,4,6,8,10].includes(val)) return true;
+            break;
+        case 3:
+            if ([0,3,6,9,12,15].includes(val)) return true;
+            break;    
+        case 4:
+            if ([0,4,8,12,16,20].includes(val)) return true;
+            break;    
+        case 5:
+            if ([0,5,10,15,20,25].includes(val)) return true;
+            break;    
+        case 6:
+            if ([0,6,12,18,24,30].includes(val)) return true;
+            break;
+        }
+        return false;
+    }
+
+
 }
