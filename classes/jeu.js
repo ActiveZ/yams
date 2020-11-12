@@ -96,7 +96,10 @@ class Jeu {
         // les 1
         tablo += '<tr><td><span>&#9856;</span> 1</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' les_1" onChange="les_1('+i+', value)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
+            i + ' les_1" onChange="update_element(' + 
+            i + ',\'les_1\', value)" type="text"></td>';
+            // tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' les_1" onChange="les_1('+i+', value)" type="text"></td>';
             // tablo += '<td onclick="verifRayer(this)"><input class="j' + i +' part1" onChange="calcul(this.class)" type="text"></td>';
         }
         tablo += '<td>les as</td></tr>';
@@ -104,35 +107,45 @@ class Jeu {
         // les 2
         tablo += '<tr><td><span>&#9857;</span> 2</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' les_2" onChange="calcul(this.class)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
+            i + ' les_2" onChange="update_element(' + 
+            i + ',\'les_2\', value)" type="text"></td>';
         }
         tablo += '<td>les 2</td></tr>';
         
         // les 3
         tablo += '<tr><td><span>&#9858;</span> 3</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' les_3" onChange="calcul(this.class)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
+            i + ' les_3" onChange="update_element(' + 
+            i + ',\'les_3\', value)" type="text"></td>';
         }
         tablo += '<td>les 3</td></tr>';
         
         //les 4
         tablo += '<tr><td><span>&#9858;</span> 4</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' les_4" onChange="calcul(this.class)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
+            i + ' les_4" onChange="update_element(' + 
+            i + ',\'les_4\', value)" type="text"></td>';
         }
         tablo += '<td>les 4</td></tr>';
         
         //les 5
         tablo += '<tr><td><span>&#9858;</span> 5</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' les_5" onChange="calcul(this.class)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
+            i + ' les_5" onChange="update_element(' + 
+            i + ',\'les_5\', value)" type="text"></td>';
         }
         tablo += '<td>les 5</td></tr>';
         
         //les 6
         tablo += '<tr><td><span>&#9858;</span> 6</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' les_6" onChange="calcul(this.class)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
+            i + ' les_6" onChange="update_element(' + 
+            i + ',\'les_6\', value)" type="text"></td>';
         }
         tablo += '<td>les 6</td></tr>';
         
@@ -153,7 +166,9 @@ class Jeu {
         //chance
         tablo += '<tr><td>CHANCE</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' chance" onChange="calcul(this.class)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
+            i + ' chance" onChange="update_element(' + 
+            i + ',\'chance\', value)" type="text"></td>';
         }
         tablo += '<td>La somme des 5 dés</td></tr>';
         
@@ -188,7 +203,7 @@ class Jeu {
         //carré
         tablo += '<tr><td>CARRE <br> 4 faces identiques</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' carre type="checkbox" value="40" onChange="verifRayer(this)"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' carre" type="checkbox" value="40" onChange="verifRayer(this)"></td>';
         }
         tablo += '<td>40</td></tr>';
         

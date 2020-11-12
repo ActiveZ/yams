@@ -69,57 +69,71 @@ class Joueur {
     ///////////////////////////// SET PART 1 /////////////////////////////////
 
     set_les_1(x) {
-        if(this.isCoherent(1,x)) this.part_1.les_1 = x
+        // console.log("x:", x, "coherent: ", this.isCoherent(1,x))
+        this.joueur.part_1.les_1 = this.isCoherent(1,x) ? x : null
+        console.log("les1:", this.joueur.part_1.les_1)
+        // return this.isCoherent(1,x)
     }
 
     set_les_2(x) {
-        if(this.isCoherent(2,x)) this.part_1.les_2 = x
+        this.joueur.part_1.les_2 = this.isCoherent(2,x) ? x : null
+        // if(this.isCoherent(2,x)) this.les_2 = x
+        // return this.isCoherent(2,x)
     }
 
     set_les_3(x) {
-        if(this.isCoherent(3,x)) this.part_1.les_3 = x
+        this.joueur.part_1.les_3 = this.isCoherent(3,x) ? x : null
+        // if(this.isCoherent(3,x)) this.les_3 = x
+        // return this.isCoherent(3,x)
     }    
     
     set_les_4(x) {
-        if(this.isCoherent(4,x)) this.part_1.les_4 = x
+        this.joueur.part_1.les_4 = this.isCoherent(4,x) ? x : null
+        // if(this.isCoherent(4,x)) this.les_4 = x
+        // return this.isCoherent(4,x)
     }    
     
     set_les_5(x) {
-        if(this.isCoherent(5,x)) this.part_1.les_5 = x
+        this.joueur.part_1.les_5= this.isCoherent(5,x) ? x : null
+        // if(this.isCoherent(5,x)) this.les_5 = x
+        // return this.isCoherent(5,x)
     }    
     
     set_les_6(x) {
-        if(this.isCoherent(6,x)) this.les_6 = x
+        this.joueur.part_1.les_6 = this.isCoherent(6,x) ? x : null
+        // if(this.isCoherent(6,x)) this.les_6 = x
+        // return this.isCoherent(6,x)
     }
 
     ///////////////////////////// SET PART 2 /////////////////////////////////
 
     set_chance(x) {
-        part_2.chance = x;
+        this.joueur.part_2.chance = (x > 4 && x < 31) ? x : null 
+        // return (x > 4 && x < 31);
     }
 
     set_brelan(x) {
-        part_2.brelan = true;
+        this.joueur.part_2.brelan = true;
     }
 
     set_petite_suite(x) {
-        part_2.petite_suite = true;
+        this.joueur.part_2.petite_suite = true;
     }
 
     set_grande_suite(x) {
-        part_2.grande_suite = true;
+        this.joueur.part_2.grande_suite = true;
     }
 
     set_full(x) {
-        part_2.full = true;
+        this.joueur.part_2.full = true;
     }
 
     set_carre(x) {
-        part_2.carre = true;
+        this.joueur.part_2.carre = true;
     }
 
     set_yams(x) {
-        part_2.yams = true;
+        this.joueur.part_2.yams = true;
     }
 
     ///////////////////////////// CALCULS ////////////////////////////////

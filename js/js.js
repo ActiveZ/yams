@@ -119,14 +119,50 @@ function verifRayer(element) {
     element.children[0].style.visibility = "visible";
     rayer();
   }
-  else calcul();
+  else calcul(); // a virer !!! quand j'aurai compris comment :)
 }
 
 
 /**************************************************************************/
+ 
+function update_element (id, elt, val) { // en cours !!!!
+  val = Number(val) // car le input renvoie du texte (normal, type="text") !
+  /////////////////////
+  // mettre des input number resoudrait les pb de cohérence et de saisie grace aux step et min/max !
+  // mais pb de css pour faire disparaitre les fleche (le faut-il ?)
+  /////////////////////
+  let j = new Joueur (jeu.get_joueur(id-1))
+  console.log(id,elt,val)
+  switch (elt) {
+    case "les_1":
+      j.set_les_1(val)
+      break;
+    case "les_2":
+      j.set_les_2(val)
+      break;
+    case "les_3":
+      j.set_les_3(val)
+      break;
+    case "les_4":
+      j.set_les_4(val)
+      break;
+    case "les_5":
+      j.set_les_5(val)
+      break;
+    case "les_6":
+      j.set_les_6(val)
+      break;
+    case "chance":
+      j.set_chance(val)
+      break;
+    default:
+  }
 
-function les_1 (id, val) {
-  console.log("id:", id, "val:", val)
+  //faire update display avec les nouvelles valeur en faisant game save puis game load
+  // ce qui permet de sauver à chaque tour
+  // et reset de la case du tableau si valeur incoherente
+  console.log("tot 1: ", j.get_total_1())
+  console.log("tot 2: ", j.get_total_2())
 }
 
 function calcul() {
