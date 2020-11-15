@@ -6,6 +6,8 @@ let jeu = new Jeu
 // j.get_joueur()
 document.getElementById("inNbJoueur").value = jeu.get_nb_joueurs()
 document.getElementById("main").innerHTML = jeu.display()
+update_display()
+
 ///////////////////////
 
 let nbJoueurs = jeu.get_nb_joueurs();
@@ -95,7 +97,7 @@ function rayer() {
 
 // vérifie qu'une ligne est rayable (pas utilisée)
 // Bug: ne fonctionne pas avec les cac
-function verifRayer(element) {
+function verifRayer(element) { ///////////////  INUTILISE !!!!!!!!!!! TODO: faire avec visibility 
   if (bRayer) {
     //console.log(element);
     //console.log(element.children[0]);
@@ -119,7 +121,11 @@ function verifRayer(element) {
     element.children[0].style.visibility = "visible";
     rayer();
   }
-  else calcul(); // a virer !!! quand j'aurai compris comment :)
+  // else calcul(); // a virer !!! quand j'aurai compris comment :)
+  else {
+    console.log("cac:", element)
+    update_element(0,"",0)
+  }
 }
 
 
@@ -132,7 +138,7 @@ function update_element (id, elt, val) { // en cours !!!!
   // mais pb de css pour faire disparaitre les fleche (le faut-il ?)
   /////////////////////
   let j = new Joueur (jeu.get_joueur(id-1))
-  console.log(id,elt,val)
+  console.log("update:", id,elt,val)
   switch (elt) {
     case "les_1":
       j.set_les_1(val)
@@ -155,14 +161,68 @@ function update_element (id, elt, val) { // en cours !!!!
     case "chance":
       j.set_chance(val)
       break;
-    default:
+    case "brelan":
+      j.set_brelan()
+      break;
+    case "petite_suite":
+      j.set_petite_suite()
+      break;    
+    case "grande_suite":
+      j.set_grande_suite()
+      break;    
+    case "full":
+      j.set_full()
+      break;    
+    case "carre":
+      j.set_carre()
+      break;  
+    case "yams":
+      j.set_yams()
+      break;
+  default:
   }
 
-  //faire update display avec les nouvelles valeur en faisant game save puis game load
+
+  //faire update display avec les nouvelles valeurs en faisant game save puis game load
   // ce qui permet de sauver à chaque tour
   // et reset de la case du tableau si valeur incoherente
+
+  // TODO: delta 
+  
   console.log("tot 1: ", j.get_total_1())
   console.log("tot 2: ", j.get_total_2())
+  jeu.game_save()
+  jeu.game_restore()
+  update_display()
+
+}
+
+function update_display() {
+  console.log("jeu:", jeu)
+  for (i = 1; i <= jeu.get_nb_joueurs(); i++) {
+    let j = new Joueur(jeu.get_joueur(i-1))
+    // j.set_les_1(5)
+    console.log("jj:", j.joueur)
+    document.getElementById("les_1_j"+ i).value = j.joueur.part_1.les_1
+    document.getElementById("les_2_j"+ i).value = j.joueur.part_1.les_2
+    document.getElementById("les_3_j"+ i).value = j.joueur.part_1.les_3
+    document.getElementById("les_4_j"+ i).value = j.joueur.part_1.les_4
+    document.getElementById("les_5_j"+ i).value = j.joueur.part_1.les_5
+    document.getElementById("les_6_j"+ i).value = j.joueur.part_1.les_6
+    document.getElementById("total1Joueur"+ i).innerHTML = j.get_total_1()
+    document.getElementById("totalPrimeJoueur"+ i).innerHTML = j.get_total_1_prime()
+
+    document.getElementById("chance_j"+ i).value = j.joueur.part_2.chance
+    document.getElementById("brelan_j"+ i).checked = j.joueur.part_2.brelan
+    document.getElementById("petite_suite_j"+ i).checked = j.joueur.part_2.petite_suite
+    document.getElementById("grande_suite_j"+ i).checked = j.joueur.part_2.grande_suite
+    document.getElementById("full_j"+ i).checked = j.joueur.part_2.full
+    document.getElementById("carre_j"+ i).checked = j.joueur.part_2.carre
+    document.getElementById("yams_j"+ i).checked = j.joueur.part_2.yams
+
+    document.getElementById("total2Joueur"+ i).innerHTML = j.get_total_2()
+    document.getElementById("generalJoueur"+ i).innerHTML = j.get_total_3()
+  }
 }
 
 function calcul() {

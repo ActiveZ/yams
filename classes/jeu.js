@@ -24,7 +24,7 @@ class Jeu {
     }
 
     get_joueur(id) {
-        console.log("id:", id, "j:", this.joueurs[id])
+        // console.log("id:", id, "j:", this.joueurs[id])
         return this.joueurs[id]
     }
 
@@ -96,56 +96,54 @@ class Jeu {
         // les 1
         tablo += '<tr><td><span>&#9856;</span> 1</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
-            i + ' les_1" onChange="update_element(' + 
-            i + ',\'les_1\', value)" type="text"></td>';
-            // tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' les_1" onChange="les_1('+i+', value)" type="text"></td>';
-            // tablo += '<td onclick="verifRayer(this)"><input class="j' + i +' part1" onChange="calcul(this.class)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="les_1_j' + i +
+            '" onChange="update_element(' + i + ',\'les_1\', value)"' + 
+            ' type="text"></td>';
         }
         tablo += '<td>les as</td></tr>';
         
         // les 2
         tablo += '<tr><td><span>&#9857;</span> 2</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
-            i + ' les_2" onChange="update_element(' + 
-            i + ',\'les_2\', value)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="les_2_j' + i + 
+            '" onChange="update_element(' + i + ',\'les_2\', value)"' +
+            ' type="text"></td>';
         }
         tablo += '<td>les 2</td></tr>';
         
         // les 3
         tablo += '<tr><td><span>&#9858;</span> 3</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
-            i + ' les_3" onChange="update_element(' + 
-            i + ',\'les_3\', value)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="les_3_j' + i + 
+            '" onChange="update_element(' + i + ',\'les_3\', value)"' +
+            ' type="text"></td>';
         }
         tablo += '<td>les 3</td></tr>';
         
         //les 4
         tablo += '<tr><td><span>&#9858;</span> 4</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
-            i + ' les_4" onChange="update_element(' + 
-            i + ',\'les_4\', value)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="les_4_j' +i + 
+            '" onChange="update_element(' + i + ',\'les_4\', value)"' +
+            ' type="text"></td>';
         }
         tablo += '<td>les 4</td></tr>';
         
         //les 5
         tablo += '<tr><td><span>&#9858;</span> 5</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
-            i + ' les_5" onChange="update_element(' + 
-            i + ',\'les_5\', value)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="les_5_j' + i + 
+            '" onChange="update_element(' + i + ',\'les_5\', value)"' +
+            ' type="text"></td>';
         }
         tablo += '<td>les 5</td></tr>';
         
         //les 6
         tablo += '<tr><td><span>&#9858;</span> 6</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
-            i + ' les_6" onChange="update_element(' + 
-            i + ',\'les_6\', value)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="les_6_j' + i + 
+            '" onChange="update_element(' + i + ',\'les_6\', value)"' +
+            ' type="text"></td>';
         }
         tablo += '<td>les 6</td></tr>';
         
@@ -166,51 +164,64 @@ class Jeu {
         //chance
         tablo += '<tr><td>CHANCE</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + 
-            i + ' chance" onChange="update_element(' + 
-            i + ',\'chance\', value)" type="text"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="chance_j' + i +  
+            '" onChange="update_element(' + i + ',\'chance\', value)"' +
+            ' type="text"></td>';
         }
         tablo += '<td>La somme des 5 dés</td></tr>';
         
         //brelan
         tablo += '<tr><td>BRELAN <br> 3 faces identiques</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' brelan" type="checkbox" value="15" onChange="verifRayer(this)"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="brelan_j' + i +
+            '" type="checkbox" value="15"' + 
+            'onChange="update_element(' + i + ', \'brelan\', this.checked)"></td>';
+            // 'onChange="verifRayer(this)"></td>'; // => old
         }
         tablo += '<td>15</td></tr>';
         
         //petite suite
         tablo += '<tr><td>PETITE SUITE <br>4 dés</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' petite_suite" type="checkbox" value="20" onChange="verifRayer(this)"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="petite_suite_j' + i +
+            '" type="checkbox" value="20"' + 
+            'onChange="update_element(' + i + ', \'petite_suite\', this.checked)"></td>';
         }
         tablo += '<td>20</td></tr>';
         
         //grande suite
         tablo += '<tr><td>GRANDE SUITE <br>5 dés</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' grande_suite" type="checkbox" value="30" onChange="verifRayer(this)"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="grande_suite_j' + i +
+            '" type="checkbox" value="30"' + 
+            'onChange="update_element(' + i + ', \'grande_suite\', this.checked)"></td>';
         }
         tablo+= '<td>30</td></tr>';
         
         //full
         tablo += '<tr><td>FULL <br> brelan + paire</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' full" type="checkbox" value="30" onChange="verifRayer(this)"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="full_j' + i +
+            '" type="checkbox" value="30"' + 
+            'onChange="update_element(' + i + ', \'full\', this.checked)"></td>';
         }
         tablo += '<td>30</td></tr>';
         
         //carré
         tablo += '<tr><td>CARRE <br> 4 faces identiques</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' carre" type="checkbox" value="40" onChange="verifRayer(this)"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="carre_j' + i +
+            '" type="checkbox" value="40"' + 
+            'onChange="update_element(' + i + ', \'carre\', this.checked)"></td>';
         }
         tablo += '<td>40</td></tr>';
         
-        //yam
-        tablo += '<tr><td>YAM <br> 5 faces identiques</td>';
+        //yams
+        tablo += '<tr><td>YAMS <br> 5 faces identiques</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input class="j' + i + ' yams" type="checkbox" value="50" onChange="verifRayer(this)"></td>';
+            tablo += '<td onclick="verifRayer(this)"><input id="yams_j' + i +
+            '" type="checkbox" value="50"' + 
+            'onChange="update_element(' + i + ', \'yams\', this.checked)"></td>';
         }
         tablo += '<td>50</td></tr>';
         

@@ -44,7 +44,7 @@ class Joueur {
     };
 
     constructor(obj = null) {
-        console.log("joueur obj construct:", obj)
+        // console.log("joueur obj construct:", obj)
         if (obj != null) this.joueur = obj
     }
 
@@ -112,30 +112,55 @@ class Joueur {
         // return (x > 4 && x < 31);
     }
 
-    set_brelan(x) {
+    set_brelan() {
         this.joueur.part_2.brelan = true;
     }
 
-    set_petite_suite(x) {
+    set_petite_suite() {
         this.joueur.part_2.petite_suite = true;
     }
 
-    set_grande_suite(x) {
+    set_grande_suite() {
         this.joueur.part_2.grande_suite = true;
     }
 
-    set_full(x) {
+    set_full() {
         this.joueur.part_2.full = true;
     }
 
-    set_carre(x) {
+    set_carre() {
         this.joueur.part_2.carre = true;
     }
 
-    set_yams(x) {
+    set_yams() {
         this.joueur.part_2.yams = true;
     }
 
+    /////////////////////////////////////////
+
+    get_brelan() {
+        return this.joueur.part_2.brelan ? 15 : null;
+    }
+
+    get_petite_suite() {
+        return this.joueur.part_2.petite_suite ? 20 : null;
+    }
+
+    get_grande_suite() {
+        return this.joueur.part_2.grande_suite ? 30 : null;
+    }
+
+    get_full() {
+        return this.joueur.part_2.full ? 30 : null;
+    }
+
+    get_carre() {
+        return this.joueur.part_2.carre ? 40 : null;
+    }
+
+    get_yams() {
+        return this.joueur.part_2.yams ? 50 : null;
+    }
     ///////////////////////////// CALCULS ////////////////////////////////
 
     get_total_1() {
