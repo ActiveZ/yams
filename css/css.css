@@ -52,14 +52,15 @@ table {
   }
 
   /* pour ne pas avoir les fleches dans les input number*/ /*marche pas ? */
+  /* ATTENTION: ne pas inclure le selecteur de nb de joueur ! */
   /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
+/* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
+} */
 
 /* Firefox */
-input[type=number] {
+/* input[type=number] {
   -moz-appearance: textfield;
-}
+} */
