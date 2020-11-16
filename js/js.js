@@ -1,9 +1,8 @@
+// TODO:
+// reset nb joueur ?
+//BUGS:
 
-//// poo ////
 let jeu = new Jeu
-// jeu.test()
-// let j = new Joueur(jeu.get_joueur(0))
-// j.get_joueur()
 document.getElementById("inNbJoueur").value = jeu.get_nb_joueurs()
 document.getElementById("main").innerHTML = jeu.display()
 update_display()
@@ -11,7 +10,6 @@ update_display()
 ///////////////////////
 
 let nbJoueurs = jeu.get_nb_joueurs();
-// init(nbJoueurs); // init avec 2 joueurs
 var bRayer = false;
 var bCancelRayer = false;
 // var gameover = false;
@@ -30,30 +28,6 @@ document.getElementById("btRejouer").onclick =function () {
   // jeu.game_clear() //poo: non car il faut conserver les joueurs, nombre et noms
   jeu.game_replay()
   document.getElementById("main").innerHTML = jeu.display()
-
-  // for (let i = 1; i <= nbJoueurs; i++) {
-  //   let x = document.getElementsByClassName("j" + i + " part1");
-  //   let y = document.getElementsByClassName("j" + i + " part2");
-
-  //   for (let j = 0; j < x.length; j++) {
-  //     x[j].value = ""; // annulation des combinaisons
-  //     x[j].style.backgroundColor = "white";
-  //     x[j].style.visibility = "visible";
-  //    }
-
-  //    y[0].value = "" ; // annulation des brelans
-  //    x[0].style.visibility = "visible";
-
-  //   for (let j = 1; j < y.length; j++) {
-  //   y[j].checked = false; // annulation des cac
-  //   y[j].style.visibility = "visible";
-  //   }
-
-  //   document.getElementById("total1Joueur" + i).innerHTML = "";
-  //   document.getElementById("totalPrimeJoueur" + i).innerHTML = "";
-  //   document.getElementById("total2Joueur" + i).innerHTML = "";
-  //   document.getElementById("generalJoueur" + i).innerHTML = "";
-  // }
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -137,7 +111,7 @@ function update_element (id, elt, val) { // en cours !!!!
   // mais pb de css pour faire disparaitre les fleche (le faut-il ?)
   /////////////////////
   let j = new Joueur (jeu.get_joueur(id-1))
-  console.log("update:", id,elt,val)
+  console.log("update:",id,elt,val)
   switch (elt) {
     case "les_1":
       j.set_les_1(val)
@@ -161,22 +135,22 @@ function update_element (id, elt, val) { // en cours !!!!
       j.set_chance(val)
       break;
     case "brelan":
-      j.set_brelan()
+      j.set_brelan(!j.get_brelan())
       break;
     case "petite_suite":
-      j.set_petite_suite()
+      j.set_petite_suite(!j.get_petite_suite())
       break;    
     case "grande_suite":
-      j.set_grande_suite()
+      j.set_grande_suite(!j.get_grande_suite())
       break;    
     case "full":
-      j.set_full()
+      j.set_full(!j.get_full())
       break;    
     case "carre":
-      j.set_carre()
+      j.set_carre(!j.get_carre())
       break;  
     case "yams":
-      j.set_yams()
+      j.set_yams(!j.get_yams())
       break;
   default:
   }
@@ -186,10 +160,8 @@ function update_element (id, elt, val) { // en cours !!!!
   // ce qui permet de sauver à chaque tour
   // et reset de la case du tableau si valeur incoherente
 
-  // TODO: delta 
-  
-  console.log("tot 1: ", j.get_total_1())
-  console.log("tot 2: ", j.get_total_2())
+  // console.log("tot 1: ", j.get_total_1())
+  // console.log("tot 2: ", j.get_total_2())
   jeu.game_save()
   jeu.game_restore()
   update_display()

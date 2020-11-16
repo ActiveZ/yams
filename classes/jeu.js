@@ -245,13 +245,4 @@ class Jeu {
         
         return tablo;
     }
-
-
-    //////////////////////////////////////////////////////////////////
-
-    
-
-    test() {
-        console.log("test:", this.joueurs)
-    }
 }

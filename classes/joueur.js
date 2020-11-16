@@ -112,28 +112,28 @@ class Joueur {
         // return (x > 4 && x < 31);
     }
 
-    set_brelan() {
-        this.joueur.part_2.brelan = true;
+    set_brelan(x) { // x = true/false
+        this.joueur.part_2.brelan = x;
     }
 
-    set_petite_suite() {
-        this.joueur.part_2.petite_suite = true;
+    set_petite_suite(x) {
+        this.joueur.part_2.petite_suite = x;
     }
 
-    set_grande_suite() {
-        this.joueur.part_2.grande_suite = true;
+    set_grande_suite(x) {
+        this.joueur.part_2.grande_suite = x;
     }
 
-    set_full() {
-        this.joueur.part_2.full = true;
+    set_full(x) {
+        this.joueur.part_2.full = x;
     }
 
-    set_carre() {
-        this.joueur.part_2.carre = true;
+    set_carre(x) {
+        this.joueur.part_2.carre = x;
     }
 
-    set_yams() {
-        this.joueur.part_2.yams = true;
+    set_yams(x) {
+        this.joueur.part_2.yams = x;
     }
 
     /////////////////////////////////////////
