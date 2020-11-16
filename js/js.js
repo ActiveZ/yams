@@ -1,5 +1,7 @@
 // TODO:
+// firebase
 // reset nb joueur ?
+// visibility = 0 pour rayer avec modale de confirm: pas obligé
 //BUGS:
 
 let jeu = new Jeu
@@ -71,7 +73,7 @@ function rayer() {
 
 // vérifie qu'une ligne est rayable (pas utilisée)
 // Bug: ne fonctionne pas avec les cac
-function verifRayer(element) { ///////////////  INUTILISE !!!!!!!!!!! TODO: faire avec visibility 
+function verifRayer(element) { // TODO: faire avec visibility 
   if (bRayer) {
     //console.log(element);
     //console.log(element.children[0]);
