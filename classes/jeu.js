@@ -98,7 +98,7 @@ class Jeu {
         for (i=1; i<=nbJoueurs; i++) {
             tablo += '<td onclick="verifRayer(this)"><input id="les_1_j' + i +
             '" onChange="update_element(' + i + ',\'les_1\', value)"' + 
-            ' type="number"></td>';
+            ' type="text"></td>';
         }
         tablo += '<td>les as</td></tr>';
         

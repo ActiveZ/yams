@@ -38,6 +38,10 @@ document.getElementById("btRejouer").onclick =function () {
 /////////////////////////////////////////////////////////////////////
 
 document.getElementById("inNbJoueur").onchange =function () {
+  if (!confirm("Voulez-vous supprimer la partie en cours ?")) {
+    document.getElementById("inNbJoueur").value = jeu.get_nb_joueurs()
+    return
+  }
   jeu.update_nb_joueurs(this.value)
   document.getElementById("main").innerHTML = jeu.display()
 }
