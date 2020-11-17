@@ -3,7 +3,7 @@
 // reset nb joueur ?
 // visibility = 0 pour rayer avec modale de confirm: pas obligé
 //BUGS:
-//selecteur nb joueur a perdu ses fleches (pourtant le css est commenté)
+//selecteur nb joueur a perdu ses fleches (pourtant le css est commenté): ok ?
 
 let jeu = new Jeu
 document.getElementById("inNbJoueur").value = jeu.get_nb_joueurs()
