@@ -98,23 +98,23 @@ class Jeu {
         for (i=1; i<=nbJoueurs; i++) {
             tablo += '<td onclick="verifRayer(this)"><input id="les_1_j' + i +
             '" onChange="update_element(' + i + ',\'les_1\', value)"' + 
-            ' type="text"></td>';
+            ' type="number"></td>';
         }
         tablo += '<td>les as</td></tr>';
         
         // les 2
         tablo += '<tr><td><span>&#9857;</span> 2</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input id="les_2_j' + i + 
+            tablo += '<td onclick="verifRayer(this)"><input class="test" id="les_2_j' + i + 
             '" onChange="update_element(' + i + ',\'les_2\', value)"' +
             ' type="text"></td>';
         }
-        tablo += '<td>les 2</td></tr>';
+        tablo += '<td class="test" style="">les 2</td></tr>';
         
         // les 3
         tablo += '<tr><td><span>&#9858;</span> 3</td>';
         for (i=1; i<=nbJoueurs; i++) {
-            tablo += '<td onclick="verifRayer(this)"><input id="les_3_j' + i + 
+            tablo += '<td onclick="verifRayer(this)"><input class="test" id="les_3_j' + i + 
             '" onChange="update_element(' + i + ',\'les_3\', value)"' +
             ' type="text"></td>';
         }
@@ -171,12 +171,11 @@ class Jeu {
         tablo += '<td>La somme des 5 dés</td></tr>';
         
         //brelan
-        tablo += '<tr><td>BRELAN <br> 3 faces identiques</td>';
+        tablo += '<tr><td>BRELAN<br> 3 faces identiques</td>';
         for (i=1; i<=nbJoueurs; i++) {
             tablo += '<td onclick="verifRayer(this)"><input id="brelan_j' + i +
             '" type="checkbox" value="15"' + 
             'onChange="update_element(' + i + ', \'brelan\', this.checked)"></td>';
-            // 'onChange="verifRayer(this)"></td>'; // => old
         }
         tablo += '<td>15</td></tr>';
         
