@@ -1,4 +1,13 @@
+/* main  {
+  color: red;
+} */
+
+/* .inputNumber {
+  display: none;
+} */
+
 .tableFixHead {
+  display: none;
   overflow-y: auto;
   height: 650px; 
 }
@@ -36,6 +45,7 @@ table {
 
   input[type=number] {
     width: 40px;
+    /* -moz-appearance: textfield; */
   }
 
   input[type=text] {
@@ -50,3 +60,22 @@ table {
   input[type=checkbox] {
     transform: scale(2); /* double la taille de la cac */
   }
+
+  /* .test {
+    color: yellow;
+    background-color: red;
+  } */
+
+  /* pour ne pas avoir les fleches dans les input number*/ /*marche pas ? */
+  /* ATTENTION: ne pas inclure le selecteur de nb de joueur ! */
+  /* Chrome, Safari, Edge, Opera */
+/* input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} */
+
+/* Firefox */
+/* input[type=number] {
+  -moz-appearance: textfield;
+} */
