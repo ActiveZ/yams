@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Yams</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/css.css">
+  <link rel="stylesheet" href="css/api.css">
+</head>
+<body>
+  <h2>YAMS: Joueurs
+    <span><input type="number" min="2" max="6" value="2" onchange="init(this.value)"></span>
+    <button id="btRejouer">Rejouer</button>
+    <button id="btRayer" onclick="rayer()">Rayer</button>
+  </h2>
+  
+  <main id="main" class="tableFixHead"></main>
+  
+  <!-- display none dans css api -->
+  <section> 
+    <div>
+      
+      <textarea id="txtArea" name="" rows="10" cols="70"></textarea>
+      
+      <p>
+        <label for="pseudo">Pseudo: </label><input type="text" name="pseudo" id="pseudo">
+        <label for="score">Score: </label><input type="text" name="score" id="score">
+        <button onclick="envoyer()">Envoyer</button>
+        <!-- <button onclick="recevoir()">Recevoir</button> -->
+      </p>
+    </div>
+  </section>
+  
+  <script src="./classes/joueur.js"></script>
+  <script src="./classes/jeu.js"></script>
+  
+  <script src="js/js.js"></script>
+  <!-- <script src="js/api.js"></script> -->
+  
+</body>
+</html>

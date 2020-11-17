@@ -1,0 +1,52 @@
+.tableFixHead {
+  overflow-y: auto;
+  height: 650px; 
+}
+
+.tableFixHead thead tr {
+  position: sticky;
+  top: 0; 
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  span{
+    font-size: 30px;
+  }
+
+  button {
+    width: 150px;
+    border-radius: 10px;
+  }
+
+  input[type=number] {
+    width: 40px;
+  }
+
+  input[type=text] {
+    width: 20px;
+    text-align: center;
+  }
+
+  .nomJoueur {
+    width: 60px;
+  }
+
+  input[type=checkbox] {
+    transform: scale(2); /* double la taille de la cac */
+  }
