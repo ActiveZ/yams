@@ -29,3 +29,9 @@ console.log("d:", j.get_delta(2))
 j.get_delta_sum()
 console.log("total 2:",j.get_total_2())
 console.log("total 3:",j.get_total_3())
+
+j.set_les_1(4)
+j.set_chance(4)
+console.log("total 1: ", j.get_total_1())
+
+jeu.game_clear()
