@@ -61,10 +61,10 @@ table {
     transform: scale(2); /* double la taille de la cac */
   }
 
-  .test {
+  /* .test {
     color: yellow;
     background-color: red;
-  }
+  } */
 
   /* pour ne pas avoir les fleches dans les input number*/ /*marche pas ? */
   /* ATTENTION: ne pas inclure le selecteur de nb de joueur ! */
